@@ -16,7 +16,9 @@ import Button from '../../components/Shared/Button/Button';
 import SplitLine from '../../components/Shared/SplitLine/SplitLine';
 import * as Styles from '../../styles/variables';
 
-const Login = () => (
+const Login = ({
+  navigation
+}) => (
   <ImageBackground
     source={Background}
     style={styles.background}>
@@ -24,7 +26,7 @@ const Login = () => (
       <Image
         source={Logo}
         style={styles.logo} />
-      <LoginFormWithData />
+      <LoginFormWithData navigation={navigation} />
       <SplitLine>
         OK
       </SplitLine>

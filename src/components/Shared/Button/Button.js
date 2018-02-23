@@ -6,6 +6,7 @@ import {
   View
 } from 'react-native';
 
+import { LetterSpacing } from '../../../components/Shared/LetterSpacing/LetterSpacing';
 import * as Styles from '../../../styles/variables';
 
 const ButtonComponent = ({
@@ -30,11 +31,11 @@ const ButtonComponent = ({
         styles.button,
         buttonStyle
       ]}>
-      <SpacedText
+      <LetterSpacing
         style={[styles.text, textStyle]}
-        letterSpacing={letterSpacing || 0}>
+        spacing={letterSpacing || 0}>
         {children}
-      </SpacedText>
+      </LetterSpacing>
     </View>
   </TouchableWithoutFeedback>
 );
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#43b5b7'
   },
   disabled: {
-    backgroundColor: '#184658'
+    backgroundColor: '#3a98c7'
   }
 });
 

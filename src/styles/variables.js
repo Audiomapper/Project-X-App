@@ -21,7 +21,8 @@ export const colors = {
 }
 
 export const fonts = {
-  robotoRegular: 'Roboto-Regular'
+  robotoRegular: 'Roboto-Regular',
+  titleFont: 'FjallaOne-Regular'
 }
 
 export const borderSize = {

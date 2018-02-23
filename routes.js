@@ -6,7 +6,7 @@ import Login from './src/containers/Login/Login';
 import Dashboard from './src/containers/Dashboard/Dashboard';
 import Splash from './src/containers/Splash/Splash';
 
-export const createRootNavigator = (signedIn = false, loading = true) => {
+export const Routes = () => {
   return StackNavigator({
     Splash: {
       screen: Splash
@@ -18,7 +18,7 @@ export const createRootNavigator = (signedIn = false, loading = true) => {
       screen: Login
     }
   }, {
-    initialRouteName: signedIn ? 'Dashboard' : (loading ? 'Splash' : 'Login'),
+    initialRouteName: 'Splash',
     headerMode: 'none',
     navigationOptions: {
       headerVisible: false

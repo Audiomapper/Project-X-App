@@ -28,11 +28,14 @@ export class Form extends Component {
 
     return this.props.login(this.props.values)
     .then((result) => {
-      this.props.resetForm(this.props.initialValues);
-      signIn(result.data.signin.token);
       this.setState({
         isPostingData: false
       });
+      this.props.resetForm(this.props.initialValues);
+      if (result) {
+        signIn(result.data.signin.token);
+        this.props.navigation.navigate('Dashboard');
+      }
     });
   }
 

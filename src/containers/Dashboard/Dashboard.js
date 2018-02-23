@@ -3,8 +3,14 @@ import {
   Text
 } from 'react-native';
 
-const Dashboard = () => (
-  <Text>Dashboard</Text>
-)
+// import { signOut } from '../../utils/authorizationToken';
+
+const Dashboard = () => {
+
+  // signOut();
+  return (
+    <Text>Dashboard</Text>
+  );
+}
 
 export default Dashboard;
