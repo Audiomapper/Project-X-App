@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import SpacedText from 'react-native-letter-spacing';
 import {
   StyleSheet,
-  TouchableWithoutFeedback,
-  View
+  TouchableHighlight,
+  View,
+  ActivityIndicator
 } from 'react-native';
 
 import { LetterSpacing } from '../../../components/Shared/LetterSpacing/LetterSpacing';
@@ -14,33 +14,49 @@ const ButtonComponent = ({
   textStyle,
   letterSpacing,
   onPress,
-  disabled,
   children,
   loading,
-  primary
+  primary,
+  noMargin
 }) => (
-  <TouchableWithoutFeedback
-    disabled={disabled}
+  <TouchableHighlight
+    style={[styles.container, noMargin && styles.noMargin]}
     onPress={onPress}>
     <View
       style={[
-        primary && !disabled && styles.primary,
-        !primary && !disabled && styles.secondary,
-        disabled && styles.disabled,
+        primary && styles.primary,
+        !primary && styles.secondary,
         loading && styles.loading,
         styles.button,
         buttonStyle
       ]}>
-      <LetterSpacing
-        style={[styles.text, textStyle]}
-        spacing={letterSpacing || 0}>
-        {children}
-      </LetterSpacing>
+      { !loading &&
+        <LetterSpacing
+          style={[styles.text, textStyle]}
+          spacing={letterSpacing || 0}>
+          {children}
+        </LetterSpacing>
+      }
+      { loading &&
+        <ActivityIndicator
+          animating={loading}
+          size="small"
+          color={Styles.colors.white} />
+      }
     </View>
-  </TouchableWithoutFeedback>
+  </TouchableHighlight>
 );
 
 const styles = StyleSheet.create({
+  container: {
+    height: (Styles.sizes.lg + 4),
+    width: '100%',
+    borderRadius: (Styles.sizes.lg + 4),
+    marginBottom: Styles.sizes.sm
+  },
+  noMargin: {
+    marginBottom: 0
+  },
   button: {
     height: (Styles.sizes.lg + 4),
     width: '100%',
@@ -55,9 +71,6 @@ const styles = StyleSheet.create({
   },
   primary: {
     backgroundColor: '#43b5b7'
-  },
-  disabled: {
-    backgroundColor: '#3a98c7'
   }
 });
 

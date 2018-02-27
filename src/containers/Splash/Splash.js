@@ -3,13 +3,15 @@ import {
   Text,
   View,
   StyleSheet,
-  Image
+  Image,
+  ImageBackground
 } from 'react-native';
 import { LetterSpacing } from '../../components/Shared/LetterSpacing/LetterSpacing';
 
 import { isTokenValid } from "../../utils/authorizationToken";
 import * as Styles from '../../styles/variables';
 import Logo from './images/logo.png';
+import Background from './images/bg.jpg';
 
 export default class Splash extends React.Component {
   constructor(props) {
@@ -19,17 +21,12 @@ export default class Splash extends React.Component {
   componentWillMount() {
     isTokenValid()
     .then(result => {
-      if (result) {
-        setTimeout(() => {
-            this.props.navigation.navigate('Dashboard');
-        }, 1000);
-      }
-
-      const loginScreen = setTimeout(() => {
-        this.props.navigation.navigate('Login');
+      setTimeout(() => {
+        if (result) {
+          return this.props.navigation.navigate('Dashboard');
+        }
+        return this.props.navigation.navigate('Login');
       }, 1000);
-
-      return loginScreen;
     })
     .catch(err => {
       alert("An error occurred")
@@ -38,21 +35,22 @@ export default class Splash extends React.Component {
 
   render() {
     return (
-      <View
+      <ImageBackground
+        source={Background}
         style={styles.container}>
         <Image
           source={Logo}
           style={styles.logo} />
         <LetterSpacing
           textStyle={styles.title}
-          spacing={6}>
+          spacing={5}>
           AUDIOMAPPER
         </LetterSpacing>
         <LetterSpacing
-          spacing={4}>
+          spacing={3}>
           educate your travels
         </LetterSpacing>
-      </View>
+      </ImageBackground>
 
     );
   }
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#3a98c7'
+    backgroundColor: '#212d3b'
   },
   logo: {
     width: 80,

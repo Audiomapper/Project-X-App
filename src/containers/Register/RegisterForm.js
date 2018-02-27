@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 
-import { Formik, Field, FormikProps} from 'formik';
+import { Formik, Field } from 'formik';
 import {
   View,
   StyleSheet
 } from 'react-native';
 
+import { LetterSpacing } from '../../components/Shared/LetterSpacing/LetterSpacing';
 import syncValidation from '../../utils/forms/validation/syncValidation';
 import TextInput from '../../components/Shared/Form/TextInput';
 import Button from '../../components/Shared/Button/Button';
 import { signIn } from '../../utils/authorizationToken';
 import * as Styles from '../../styles/variables';
 
-export class LoginForm extends Component {
+export class RegisterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPostingData: false,
+      isPostingData: false
     };
     this.handleSubmitForm = this.handleSubmitForm.bind(this);
   }
@@ -26,14 +27,14 @@ export class LoginForm extends Component {
       isPostingData: true
     });
 
-    return this.props.login(values)
+    return this.props.register(values)
     .then((result) => {
       this.setState({
         isPostingData: false
       });
-      resetForm(this.props.formValues);
+      resetForm(formValues);
       if (result) {
-        signIn(result.data.signin.token);
+        signIn(result.data.signup.token);
         this.props.navigation.navigate('Dashboard');
       }
     });
@@ -42,6 +43,8 @@ export class LoginForm extends Component {
   render() {
 
     const formValues = {
+      firstName: '',
+      lastName: '',
       email: '',
       password: ''
     }
@@ -55,6 +58,22 @@ export class LoginForm extends Component {
         }) => this.handleSubmitForm(values, resetForm, formValues)}
         render={props => (
           <View>
+            <Field
+              component={TextInput}
+              name="firstName"
+              label="FIRST NAME"
+              placeholder="Enter your first name"
+              onChangeText={props.setFieldValue}
+              onBlurText={props.setFieldTouched}
+            />
+            <Field
+              component={TextInput}
+              name="lastName"
+              label="LAST NAME"
+              placeholder="Enter your last name"
+              onChangeText={props.setFieldValue}
+              onBlurText={props.setFieldTouched}
+            />
             <Field
               component={TextInput}
               name="email"
@@ -77,7 +96,7 @@ export class LoginForm extends Component {
               primary
               loading={this.state.isPostingData}
               letterSpacing={2}>
-              LOG IN
+              REGISTER
             </Button>
           </View>
         )}
@@ -92,4 +111,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginForm;
+export default RegisterForm;

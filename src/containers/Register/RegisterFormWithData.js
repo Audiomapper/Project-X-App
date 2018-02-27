@@ -1,10 +1,10 @@
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import LoginFormComponent from './LoginForm';
+import RegisterFormComponent from './RegisterForm';
 
-const LOGIN_MUTATION = gql`mutation SignIn($user: SignInInput!) {
-  signin(user: $user) {
+const REGISTER_MUTATION = gql`mutation SignUp($user: SignUpInput!) {
+  signup(user: $user) {
     id
     firstName
     lastName
@@ -13,9 +13,9 @@ const LOGIN_MUTATION = gql`mutation SignIn($user: SignInInput!) {
   }
 }`;
 
-const withCreateMutation = graphql(LOGIN_MUTATION, {
+const withRegisterMutation = graphql(REGISTER_MUTATION, {
   props: ({ ownProps, mutate }) => ({
-    login: user => (
+    register: user => (
       mutate({
         variables: {
           user
@@ -32,5 +32,5 @@ const withCreateMutation = graphql(LOGIN_MUTATION, {
 });
 
 export default compose(
-  withCreateMutation
-)(LoginFormComponent);
+  withRegisterMutation
+)(RegisterFormComponent);

@@ -13,12 +13,11 @@ import * as Styles from './variables';
 const customTextInputProps = {
   underlineColorAndroid: 'rgba(0,0,0,0)',
   style: {
-    height: 40,
+    height: 36,
     width: '100%',
-    color: Styles.colors.white,
-    borderBottomColor: Styles.colors.white,
+    color: '#999',
+    borderBottomColor: '#777777',
     borderBottomWidth: 1,
-    marginBottom: 6,
     letterSpacing: 2,
     fontSize: 14,
     fontFamily: Platform.OS === 'ios' ? 'Roboto-Regular' : 'Roboto-Regular'

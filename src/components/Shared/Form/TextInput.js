@@ -6,13 +6,15 @@ import {
   Text
 } from 'react-native';
 
+import { LetterSpacing } from '../../../components/Shared/LetterSpacing/LetterSpacing';
 import * as Styles from '../../../styles/variables';
 
 const TextInputComponent = ({
   onChangeText,
   onBlurText,
-  style,
   placeholder,
+  label,
+  style,
   field: {
     value,
     name
@@ -22,10 +24,17 @@ const TextInputComponent = ({
     touched
   }
 }) => (
-  <View style={style}>
+  <View style={[styles.container, style]}>
+    { label &&
+      <LetterSpacing
+        style={styles.label}
+        spacing={2}>
+        {label}
+      </LetterSpacing>
+    }
     <TextInput
       onBlur={() => onBlurText(name)}
-      placeholderTextColor={Styles.colors.white}
+      placeholderTextColor={'#999'}
       onChangeText={value => onChangeText(name, value)}
       placeholder={placeholder}
       value={value}
@@ -40,8 +49,15 @@ const TextInputComponent = ({
 );
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: Styles.sizes.md
+  },
   error: {
-    color: Styles.colors.error
+    color: Styles.colors.error,
+    marginTop: Styles.sizes.xxs
+  },
+  label: {
+    fontSize: 10
   }
 });
 
