@@ -4,7 +4,7 @@ import {
 
 import { sizes } from '../../../styles/variables';
 
-export default StyleSheet.create({
+export default StyleSheet.flatten({
   password: {
     marginBottom: (sizes.md + sizes.sm)
   }

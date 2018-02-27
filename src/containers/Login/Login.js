@@ -6,12 +6,12 @@ import {
   View
 } from 'react-native';
 
-import Background from './images/bg.jpg';
-import Logo from './images/logo.png';
+import Background from '../../images/bg.jpg';
+import Logo from '../../images/logo.png';
 import LoginFormWithData from './LoginForm/LoginFormWithData';
 import Button from '../../components/Shared/Button/Button';
 import SplitLine from '../../components/Shared/SplitLine/SplitLine';
-import { LetterSpacing } from '../../components/Shared/LetterSpacing/LetterSpacing';
+import LetterSpacing from '../../components/Shared/LetterSpacing/LetterSpacing';
 import styles from './loginStyles';
 
 const Login = ({

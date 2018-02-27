@@ -8,7 +8,7 @@ import {
   fontSizes
 } from '../../../styles/variables';
 
-export default StyleSheet.create({
+export default StyleSheet.flatten({
   container: {
     height: (sizes.lg + 4),
     width: '100%',

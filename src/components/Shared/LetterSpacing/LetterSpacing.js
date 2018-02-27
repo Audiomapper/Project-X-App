@@ -4,7 +4,7 @@ import {
   View
 } from 'react-native';
 
-import { Letter } from './Letter';
+import Letter from './Letter';
 import styles from './letterSpacingStyles';
 
 const spacingForLetterIndex = (
@@ -30,22 +30,25 @@ const LetterSpacing = (props) => {
   return (
     <View
       style={[styles.container, viewStyle]}>
-      {letters.map((letter, index) => (
-        <Letter
-          key={letter}
-          spacing={spacingForLetterIndex(letters, index, spacing)}
-          textStyle={textStyle}
-          onPress={onPress}>
-          {letter}
-        </Letter>
-      ))}
+      { letters.map((letter, index) => {
+        const key = `letter${index}`;
+        return (
+          <Letter
+            key={key}
+            spacing={spacingForLetterIndex(letters, index, spacing)}
+            textStyle={textStyle}
+            onPress={onPress}>
+            {letter}
+          </Letter>
+        );
+      })}
     </View>
   );
 };
 
 LetterSpacing.propTypes = {
   children: PropTypes.string,
-  spacing: PropTypes.string,
+  spacing: PropTypes.number,
   viewStyle: PropTypes.object,
   textStyle: PropTypes.object,
   onPress: PropTypes.func

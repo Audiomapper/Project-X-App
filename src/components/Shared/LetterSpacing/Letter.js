@@ -26,7 +26,7 @@ const Letter = (props) => {
 
 Letter.propTypes = {
   children: PropTypes.string,
-  spacing: PropTypes.string,
+  spacing: PropTypes.number,
   textStyle: PropTypes.object,
   onPress: PropTypes.func
 };

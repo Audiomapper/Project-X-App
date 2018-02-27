@@ -4,7 +4,7 @@ import {
 
 import { sizes } from '../../styles/variables';
 
-export default StyleSheet.create({
+export default StyleSheet.flatten({
   background: {
     flex: 1,
     width: '100%',

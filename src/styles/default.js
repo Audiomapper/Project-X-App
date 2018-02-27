@@ -1,7 +1,6 @@
 import { Platform } from 'react-native';
 
 import {
-  setCustomView,
   setCustomTextInput,
   setCustomText,
   setCustomImage,
@@ -37,7 +36,12 @@ const customImageProps = {
 };
 
 const customTouchableOpacityProps = {
-  hitSlop: { top: 15, right: 15, left: 15, bottom: 15 }
+  hitSlop: {
+    top: 15,
+    right: 15,
+    left: 15,
+    bottom: 15
+  }
 };
 
 setCustomTextInput(customTextInputProps);

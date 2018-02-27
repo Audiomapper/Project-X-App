@@ -89,7 +89,7 @@ export class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  navigation: PropTypes.func,
+  navigation: PropTypes.object,
   login: PropTypes.func
 };
 

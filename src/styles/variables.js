@@ -10,7 +10,7 @@ export const fontSizes = {
   extraSmall: 10,
   small: 12,
   standard: 14
-}
+};
 
 export const colors = {
   white: '#ffffff',
@@ -18,15 +18,15 @@ export const colors = {
   facebook: '#3a5892',
   google: '#df4a32',
   error: '#FF1826'
-}
+};
 
 export const fonts = {
   robotoRegular: 'Roboto-Regular',
   titleFont: 'FjallaOne-Regular'
-}
+};
 
 export const borderSize = {
   small: 1,
   medium: 2,
   large: 3
-}
+};

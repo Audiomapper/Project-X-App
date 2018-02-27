@@ -7,7 +7,7 @@ import {
   colors
 } from '../../../styles/variables';
 
-export default StyleSheet.create({
+export default StyleSheet.flatten({
   container: {
     marginBottom: sizes.md
   },

@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-import Background from './images/bg.jpg';
+import Background from '../../images/bg.jpg';
 import RegisterFormWithData from './RegisterForm/RegisterFormWithData';
 import Button from '../../components/Shared/Button/Button';
 import SplitLine from '../../components/Shared/SplitLine/SplitLine';

@@ -7,7 +7,7 @@ import {
   fonts
 } from '../../styles/variables';
 
-export default StyleSheet.create({
+export default StyleSheet.flatten({
   container: {
     flex: 1,
     width: '100%',

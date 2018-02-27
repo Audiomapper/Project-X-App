@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -6,13 +6,13 @@ import {
   ImageBackground
 } from 'react-native';
 
-import { LetterSpacing } from '../../components/Shared/LetterSpacing/LetterSpacing';
+import LetterSpacing from '../../components/Shared/LetterSpacing/LetterSpacing';
 import { isTokenValid } from '../../utils/authorizationToken';
 import styles from './splashStyles';
-import Logo from './images/logo.png';
+import Logo from '../../images/logo.png';
 import Background from './images/bg.jpg';
 
-export default class Splash extends React.Component {
+export class Splash extends Component {
   componentWillMount() {
     isTokenValid()
       .then((result) => {
@@ -46,7 +46,6 @@ export default class Splash extends React.Component {
           educate your travels
         </LetterSpacing>
       </ImageBackground>
-
     );
   }
 }
@@ -54,3 +53,5 @@ export default class Splash extends React.Component {
 Splash.propTypes = {
   navigation: PropTypes.object
 };
+
+export default Splash;

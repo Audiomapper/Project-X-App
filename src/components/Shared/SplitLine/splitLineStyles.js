@@ -8,7 +8,7 @@ import {
   fonts
 } from '../../../styles/variables';
 
-export default StyleSheet.create({
+export default StyleSheet.flatten({
   container: {
     flexDirection: 'row',
     width: '50%',
