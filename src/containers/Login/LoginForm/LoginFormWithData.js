@@ -14,17 +14,15 @@ const LOGIN_MUTATION = gql`mutation SignIn($user: SignInInput!) {
 }`;
 
 const withCreateMutation = graphql(LOGIN_MUTATION, {
-  props: ({ ownProps, mutate }) => ({
+  props: ({ mutate }) => ({
     login: user => (
       mutate({
         variables: {
           user
         }
-      })
-      .then(response => (
+      }).then(response => (
         response
-      ))
-      .catch((error) => {
+      )).catch((error) => {
         console.log(error);
       })
     )

@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
-  StyleSheet,
   View,
   Text
 } from 'react-native';
 
-import * as Styles from '../../../styles/variables';
+import styles from './splitLineStyles';
 
 const SplitLineComponent = ({
   children
@@ -19,25 +19,8 @@ const SplitLineComponent = ({
   </View>
 );
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    width: '50%',
-    marginLeft: '25%',
-    marginBottom: Styles.sizes.sm
-  },
-  line: {
-    backgroundColor: Styles.colors.white,
-    height: 1,
-    flex: 1,
-    alignSelf: 'center'
-  },
-  text: {
-    alignSelf:'center',
-    paddingHorizontal:5,
-    fontSize: Styles.fonts.small,
-    color: Styles.colors.white
-  }
-});
+SplitLineComponent.propTypes = {
+  children: PropTypes.string
+};
 
 export default SplitLineComponent;

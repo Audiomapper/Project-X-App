@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
-  StyleSheet,
   TouchableHighlight,
   View,
   ActivityIndicator
 } from 'react-native';
 
 import { LetterSpacing } from '../../../components/Shared/LetterSpacing/LetterSpacing';
-import * as Styles from '../../../styles/variables';
+import styles from './buttonStyles';
+import { colors } from '../../../styles/variables';
 
 const ButtonComponent = ({
   buttonStyle,
@@ -41,37 +42,21 @@ const ButtonComponent = ({
         <ActivityIndicator
           animating={loading}
           size="small"
-          color={Styles.colors.white} />
+          color={colors.white} />
       }
     </View>
   </TouchableHighlight>
 );
 
-const styles = StyleSheet.create({
-  container: {
-    height: (Styles.sizes.lg + 4),
-    width: '100%',
-    borderRadius: (Styles.sizes.lg + 4),
-    marginBottom: Styles.sizes.sm
-  },
-  noMargin: {
-    marginBottom: 0
-  },
-  button: {
-    height: (Styles.sizes.lg + 4),
-    width: '100%',
-    borderRadius: (Styles.sizes.lg + 4),
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: Styles.sizes.sm
-  },
-  text: {
-    color: Styles.colors.white,
-    fontSize: Styles.fontSizes.sm
-  },
-  primary: {
-    backgroundColor: '#43b5b7'
-  }
-});
+ButtonComponent.propTypes = {
+  buttonStyle: PropTypes.object,
+  textStyle: PropTypes.object,
+  letterSpacing: PropTypes.number,
+  onPress: PropTypes.func,
+  children: PropTypes.string,
+  loading: PropTypes.bool,
+  primary: PropTypes.bool,
+  noMargin: PropTypes.bool
+};
 
 export default ButtonComponent;

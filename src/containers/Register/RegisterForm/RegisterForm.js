@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import { Formik, Field } from 'formik';
 import {
-  View,
-  StyleSheet
+  View
 } from 'react-native';
 
-import { LetterSpacing } from '../../components/Shared/LetterSpacing/LetterSpacing';
-import syncValidation from '../../utils/forms/validation/syncValidation';
-import TextInput from '../../components/Shared/Form/TextInput';
-import Button from '../../components/Shared/Button/Button';
-import { signIn } from '../../utils/authorizationToken';
-import * as Styles from '../../styles/variables';
+import syncValidation from '../../../utils/forms/validation/syncValidation';
+import TextInput from '../../../components/Shared/Form/TextInput';
+import Button from '../../../components/Shared/Button/Button';
+import { signIn } from '../../../utils/authorizationToken';
+import styles from './registerFormStyles';
 
 export class RegisterForm extends Component {
   constructor(props) {
@@ -28,16 +26,16 @@ export class RegisterForm extends Component {
     });
 
     return this.props.register(values)
-    .then((result) => {
-      this.setState({
-        isPostingData: false
+      .then((result) => {
+        this.setState({
+          isPostingData: false
+        });
+        resetForm(formValues);
+        if (result) {
+          signIn(result.data.signup.token);
+          this.props.navigation.navigate('Dashboard');
+        }
       });
-      resetForm(formValues);
-      if (result) {
-        signIn(result.data.signup.token);
-        this.props.navigation.navigate('Dashboard');
-      }
-    });
   }
 
   render() {
@@ -47,7 +45,7 @@ export class RegisterForm extends Component {
       lastName: '',
       email: '',
       password: ''
-    }
+    };
 
     return (
       <Formik
@@ -63,24 +61,24 @@ export class RegisterForm extends Component {
               name="firstName"
               label="FIRST NAME"
               placeholder="Enter your first name"
-              onChangeText={props.setFieldValue}
-              onBlurText={props.setFieldTouched}
+              changeText={props.setFieldValue}
+              blurText={props.setFieldTouched}
             />
             <Field
               component={TextInput}
               name="lastName"
               label="LAST NAME"
               placeholder="Enter your last name"
-              onChangeText={props.setFieldValue}
-              onBlurText={props.setFieldTouched}
+              changeText={props.setFieldValue}
+              blurText={props.setFieldTouched}
             />
             <Field
               component={TextInput}
               name="email"
               label="EMAIL ADDRESS"
               placeholder="Enter your email address"
-              onChangeText={props.setFieldValue}
-              onBlurText={props.setFieldTouched}
+              changeText={props.setFieldValue}
+              blurText={props.setFieldTouched}
             />
             <Field
               component={TextInput}
@@ -88,8 +86,8 @@ export class RegisterForm extends Component {
               name="password"
               label="PASSWORD"
               placeholder="Enter your password"
-              onChangeText={props.setFieldValue}
-              onBlurText={props.setFieldTouched}
+              changeText={props.setFieldValue}
+              blurText={props.setFieldTouched}
             />
             <Button
               onPress={props.handleSubmit}
@@ -105,10 +103,9 @@ export class RegisterForm extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  password: {
-    marginBottom: (Styles.sizes.md + Styles.sizes.sm)
-  }
-});
+RegisterForm.propTypes = {
+  navigation: PropTypes.object,
+  register: PropTypes.func
+};
 
 export default RegisterForm;

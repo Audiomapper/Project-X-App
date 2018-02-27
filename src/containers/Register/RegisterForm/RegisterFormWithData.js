@@ -14,17 +14,15 @@ const REGISTER_MUTATION = gql`mutation SignUp($user: SignUpInput!) {
 }`;
 
 const withRegisterMutation = graphql(REGISTER_MUTATION, {
-  props: ({ ownProps, mutate }) => ({
+  props: ({ mutate }) => ({
     register: user => (
       mutate({
         variables: {
           user
         }
-      })
-      .then(response => (
+      }).then(response => (
         response
-      ))
-      .catch((error) => {
+      )).catch((error) => {
         console.log(error);
       })
     )

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-
-import { Formik, Field, FormikProps} from 'formik';
+import PropTypes from 'prop-types';
 import {
-  View,
-  StyleSheet
+  Formik,
+  Field
+} from 'formik';
+import {
+  View
 } from 'react-native';
 
-import syncValidation from '../../utils/forms/validation/syncValidation';
-import TextInput from '../../components/Shared/Form/TextInput';
-import Button from '../../components/Shared/Button/Button';
-import { signIn } from '../../utils/authorizationToken';
-import * as Styles from '../../styles/variables';
+import syncValidation from '../../../utils/forms/validation/syncValidation';
+import TextInput from '../../../components/Shared/Form/TextInput';
+import Button from '../../../components/Shared/Button/Button';
+import { signIn } from '../../../utils/authorizationToken';
+import styles from './loginFormStyles';
 
 export class LoginForm extends Component {
   constructor(props) {
@@ -27,16 +29,16 @@ export class LoginForm extends Component {
     });
 
     return this.props.login(values)
-    .then((result) => {
-      this.setState({
-        isPostingData: false
+      .then((result) => {
+        this.setState({
+          isPostingData: false
+        });
+        resetForm(formValues);
+        if (result) {
+          signIn(result.data.signin.token);
+          this.props.navigation.navigate('Dashboard');
+        }
       });
-      resetForm(this.props.formValues);
-      if (result) {
-        signIn(result.data.signin.token);
-        this.props.navigation.navigate('Dashboard');
-      }
-    });
   }
 
   render() {
@@ -44,7 +46,7 @@ export class LoginForm extends Component {
     const formValues = {
       email: '',
       password: ''
-    }
+    };
 
     return (
       <Formik
@@ -60,8 +62,8 @@ export class LoginForm extends Component {
               name="email"
               label="EMAIL ADDRESS"
               placeholder="Enter your email address"
-              onChangeText={props.setFieldValue}
-              onBlurText={props.setFieldTouched}
+              changeText={props.setFieldValue}
+              blurText={props.setFieldTouched}
             />
             <Field
               component={TextInput}
@@ -69,8 +71,8 @@ export class LoginForm extends Component {
               name="password"
               label="PASSWORD"
               placeholder="Enter your password"
-              onChangeText={props.setFieldValue}
-              onBlurText={props.setFieldTouched}
+              changeText={props.setFieldValue}
+              blurText={props.setFieldTouched}
             />
             <Button
               onPress={props.handleSubmit}
@@ -86,10 +88,9 @@ export class LoginForm extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  password: {
-    marginBottom: (Styles.sizes.md + Styles.sizes.sm)
-  }
-});
+LoginForm.propTypes = {
+  navigation: PropTypes.func,
+  login: PropTypes.func
+};
 
 export default LoginForm;

@@ -1,31 +1,54 @@
-import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
-import { Letter } from './Letter'
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  View
+} from 'react-native';
 
-const spacingForLetterIndex = (letters, index, spacing) => (letters.length - 1 === index) ? 0 : spacing
+import { Letter } from './Letter';
+import styles from './letterSpacingStyles';
 
-export const LetterSpacing = (props) => {
-  const { children, spacing, viewStyle, textStyle, onPress } = props
+const spacingForLetterIndex = (
+  letters,
+  index,
+  spacing
+) => {
+  if (letters.length - 1 === index) {
+    return 0;
+  }
+  return spacing;
+};
+
+const LetterSpacing = (props) => {
+  const {
+    children,
+    spacing,
+    viewStyle,
+    textStyle,
+    onPress
+  } = props;
   const letters = children.split('');
-
   return (
     <View
       style={[styles.container, viewStyle]}>
-      {letters.map((letter, index) =>
+      {letters.map((letter, index) => (
         <Letter
-          key={index}
+          key={letter}
           spacing={spacingForLetterIndex(letters, index, spacing)}
           textStyle={textStyle}
           onPress={onPress}>
           {letter}
         </Letter>
-      )}
+      ))}
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row'
-  }
-})
+LetterSpacing.propTypes = {
+  children: PropTypes.string,
+  spacing: PropTypes.string,
+  viewStyle: PropTypes.object,
+  textStyle: PropTypes.object,
+  onPress: PropTypes.func
+};
+
+export default LetterSpacing;

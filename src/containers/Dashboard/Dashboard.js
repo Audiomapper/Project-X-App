@@ -5,12 +5,8 @@ import {
 
 // import { signOut } from '../../utils/authorizationToken';
 
-const Dashboard = () => {
-
-  // signOut();
-  return (
-    <Text>Dashboard</Text>
-  );
-}
+const Dashboard = () => (
+  <Text>Dashboard</Text>
+);
 
 export default Dashboard;

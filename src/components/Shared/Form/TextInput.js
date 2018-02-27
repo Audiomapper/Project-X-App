@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   TextInput,
-  StyleSheet,
   View,
   Text
 } from 'react-native';
 
 import { LetterSpacing } from '../../../components/Shared/LetterSpacing/LetterSpacing';
-import * as Styles from '../../../styles/variables';
+import styles from './textInputStyles';
 
 const TextInputComponent = ({
   onChangeText,
@@ -35,7 +35,7 @@ const TextInputComponent = ({
     <TextInput
       onBlur={() => onBlurText(name)}
       placeholderTextColor={'#999'}
-      onChangeText={value => onChangeText(name, value)}
+      onChangeText={values => onChangeText(name, values)}
       placeholder={placeholder}
       value={value}
     />
@@ -48,17 +48,14 @@ const TextInputComponent = ({
   </View>
 );
 
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: Styles.sizes.md
-  },
-  error: {
-    color: Styles.colors.error,
-    marginTop: Styles.sizes.xxs
-  },
-  label: {
-    fontSize: 10
-  }
-});
+TextInputComponent.propTypes = {
+  onChangeText: PropTypes.func,
+  onBlurText: PropTypes.func,
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  style: PropTypes.object,
+  field: PropTypes.object,
+  form: PropTypes.object
+};
 
 export default TextInputComponent;

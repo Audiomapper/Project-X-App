@@ -1,18 +1,19 @@
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Text } from 'react-native';
 
-export const Letter = (props) => {
+const Letter = (props) => {
   const {
     children,
     spacing,
     textStyle,
     onPress
-  } = props
+  } = props;
 
   const letterStyles = [
     textStyle,
     { paddingRight: spacing }
-  ]
+  ];
 
   return (
     <Text
@@ -20,5 +21,14 @@ export const Letter = (props) => {
       onPress={onPress}>
       {children}
     </Text>
-  )
-}
+  );
+};
+
+Letter.propTypes = {
+  children: PropTypes.string,
+  spacing: PropTypes.string,
+  textStyle: PropTypes.object,
+  onPress: PropTypes.func
+};
+
+export default Letter;
