@@ -1,4 +1,4 @@
-import React from 'react'
+/* eslint-disable no-underscore-dangle */
 import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -25,14 +25,14 @@ export default () => {
     }
   }));
 
-  const httpLink = createHttpLink({ uri: getGraphqlEndpoint() })
+  const httpLink = createHttpLink({ uri: getGraphqlEndpoint() });
 
   const link = middlewareLink.concat(httpLink);
 
   const client = new ApolloClient({
     link,
-    cache: new InMemoryCache()
+    cache
   });
 
   return client;
-}
+};

@@ -5,7 +5,3 @@ export function getBaseUrl() {
 export function getGraphqlEndpoint() {
   return `${getBaseUrl()}/graphql`;
 }
-
-export function setBaseRedirect() {
-  return `${getBaseUrl()}/account/login`;
-}

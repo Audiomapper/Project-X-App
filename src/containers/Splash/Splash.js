@@ -12,7 +12,7 @@ import styles from './splashStyles';
 import Logo from '../../images/logo.png';
 import Background from './images/bg.jpg';
 
-export class Splash extends Component {
+export class SplashComponent extends Component {
   componentWillMount() {
     isTokenValid()
       .then((result) => {
@@ -50,8 +50,8 @@ export class Splash extends Component {
   }
 }
 
-Splash.propTypes = {
+SplashComponent.propTypes = {
   navigation: PropTypes.object
 };
 
-export default Splash;
+export default SplashComponent;
