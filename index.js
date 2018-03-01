@@ -18,4 +18,4 @@ const Client = () => (
   </ApolloProvider>
 );
 
-AppRegistry.registerComponent('HelloWorld', () => Client);
+AppRegistry.registerComponent('app', () => Client);

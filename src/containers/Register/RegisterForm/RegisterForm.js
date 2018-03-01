@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import debounce from 'lodash.debounce';
 import { Formik, Field } from 'formik';
 import {
   View
@@ -7,8 +8,10 @@ import {
 
 import syncValidation from '../../../utils/forms/validation/syncValidation';
 import TextInput from '../../../components/Shared/Form/TextInput';
+import EmailInput from '../../../components/Shared/Form/EmailInput';
 import Button from '../../../components/Shared/Button/Button';
 import { signIn } from '../../../utils/authorizationToken';
+// import isEmailAvailable from '../../../components/Shared/Validators/IsEmailAvailable';
 import styles from './registerFormStyles';
 
 export class RegisterForm extends Component {
@@ -39,7 +42,6 @@ export class RegisterForm extends Component {
   }
 
   render() {
-
     const formValues = {
       firstName: '',
       lastName: '',
@@ -73,8 +75,9 @@ export class RegisterForm extends Component {
               blurText={props.setFieldTouched}
             />
             <Field
-              component={TextInput}
+              component={EmailInput}
               name="email"
+              asyncCheck
               label="EMAIL ADDRESS"
               placeholder="Enter your email address"
               changeText={props.setFieldValue}

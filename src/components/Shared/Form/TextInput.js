@@ -10,8 +10,8 @@ import LetterSpacing from '../../../components/Shared/LetterSpacing/LetterSpacin
 import styles from './textInputStyles';
 
 const TextInputComponent = ({
-  onChangeText,
-  onBlurText,
+  changeText,
+  blurText,
   placeholder,
   label,
   style,
@@ -33,9 +33,9 @@ const TextInputComponent = ({
       </LetterSpacing>
     }
     <TextInput
-      onBlur={() => onBlurText(name)}
+      onBlur={() => blurText(name)}
       placeholderTextColor={'#999'}
-      onChangeText={values => onChangeText(name, values)}
+      onChangeText={values => changeText(name, values)}
       placeholder={placeholder}
       value={value}
     />
@@ -49,8 +49,8 @@ const TextInputComponent = ({
 );
 
 TextInputComponent.propTypes = {
-  onChangeText: PropTypes.func,
-  onBlurText: PropTypes.func,
+  changeText: PropTypes.func,
+  blurText: PropTypes.func,
   placeholder: PropTypes.string,
   label: PropTypes.string,
   style: PropTypes.object,
