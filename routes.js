@@ -1,9 +1,9 @@
 import { StackNavigator } from 'react-navigation';
 
-import Login from './src/containers/Login/Login';
-import Dashboard from './src/containers/Dashboard/Dashboard';
-import Splash from './src/containers/Splash/Splash';
-import Register from './src/containers/Register/Register';
+import Login from '~/containers/Login/Login';
+import Dashboard from '~/containers/Dashboard/Dashboard';
+import Splash from '~/containers/Splash/Splash';
+import Register from '~/containers/Register/Register';
 
 const transitionConfig = () => ({
   screenInterpolator: (sceneProps) => {

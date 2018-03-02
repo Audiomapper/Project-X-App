@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   ImageBackground,
-  View
+  View,
+  Text
 } from 'react-native';
 
 import Background from '~/images/bg.jpg';
@@ -17,6 +18,11 @@ const Register = ({
   <ImageBackground
     source={Background}
     style={styles.background}>
+    <View style={styles.back}>
+      <Text onPress={() => navigation.goBack()}>
+        back
+      </Text>
+    </View>
     <View style={styles.container}>
       <RegisterFormWithData navigation={navigation} />
       <SplitLine>

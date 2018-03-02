@@ -11,10 +11,10 @@ import Button from '~/components/Shared/Button/Button';
 import asyncEmailValidator from '~/components/Shared/Validators/isEmailAvailableAsyncValidator';
 import { password } from '~/utils/forms/validation/fieldValidation';
 import { signIn } from '~/utils/authorizationToken';
-
-import styles from './loginFormStyles';
+import helpers from '~/styles/helpers';
 
 export class LoginForm extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -58,7 +58,7 @@ export class LoginForm extends Component {
           component={TextInput}
           validate={password}
           autoComplete="off"
-          style={styles.password}
+          style={helpers.marginBottom}
           name="password"
           label="PASSWORD"
           placeholder="Enter your password"

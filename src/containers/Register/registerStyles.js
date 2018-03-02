@@ -27,5 +27,11 @@ export default StyleSheet.flatten({
   },
   google: {
     backgroundColor: 'rgba(0, 0, 0, 0.2)'
+  },
+  back: {
+    position: 'absolute',
+    width: '100%',
+    top: 60,
+    left: 0
   }
 });

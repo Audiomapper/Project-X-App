@@ -8,7 +8,7 @@ import TextInput from '~/components/Shared/Form/TextInput';
 import Button from '~/components/Shared/Button/Button';
 import { password, required, maxLength, email } from '~/utils/forms/validation/fieldValidation';
 import { signIn } from '~/utils/authorizationToken';
-import styles from './registerFormStyles';
+import helpers from '~/styles/helpers';
 
 export class RegisterForm extends Component {
   constructor(props) {
@@ -77,7 +77,7 @@ export class RegisterForm extends Component {
         />
         <Field
           component={TextInput}
-          style={styles.password}
+          style={helpers.marginBottom}
           name="password"
           label="PASSWORD"
           placeholder="Enter your password"
