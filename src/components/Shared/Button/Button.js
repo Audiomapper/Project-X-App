@@ -6,9 +6,9 @@ import {
   ActivityIndicator
 } from 'react-native';
 
-import LetterSpacing from '../../../components/Shared/LetterSpacing/LetterSpacing';
+import LetterSpacing from '~/components/Shared/LetterSpacing/LetterSpacing';
 import styles from './buttonStyles';
-import { colors } from '../../../styles/variables';
+import { colors } from '~/styles/variables';
 
 const ButtonComponent = ({
   buttonStyle,

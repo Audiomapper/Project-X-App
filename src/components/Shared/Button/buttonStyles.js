@@ -6,7 +6,7 @@ import {
   sizes,
   colors,
   fontSizes
-} from '../../../styles/variables';
+} from '~/styles/variables';
 
 export default StyleSheet.flatten({
   container: {

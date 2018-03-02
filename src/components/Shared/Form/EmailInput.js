@@ -10,7 +10,7 @@ import {
   Text
 } from 'react-native';
 
-import LetterSpacing from '../../../components/Shared/LetterSpacing/LetterSpacing';
+import LetterSpacing from '~/components/Shared/LetterSpacing/LetterSpacing';
 import styles from './textInputStyles';
 
 export class EmailInputComponent extends Component {

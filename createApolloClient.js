@@ -1,37 +1,71 @@
-/* eslint-disable no-underscore-dangle */
-import { ApolloClient } from 'apollo-client';
-import { createHttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { setContext } from 'apollo-link-context';
+// COMMENTED OUT CODE IS FOR MOCKS
 
+// import { ApolloClient } from 'react-apollo';
+// import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
+// import { mockNetworkInterfaceWithSchema } from 'apollo-test-utils';
+//
+// import { typeDefs } from './graphql/schema';
+// import mocks from './graphql/mocks';
+//
+// export default () => {
+//   const schema = makeExecutableSchema({ typeDefs });
+//
+//   addMockFunctionsToSchema({
+//     schema,
+//     mocks
+//   });
+//
+//   const networkInterface = mockNetworkInterfaceWithSchema({ schema });
+//
+//   const client = new ApolloClient({ networkInterface });
+//
+//   return client;
+// };
+
+/* eslint-disable no-underscore-dangle */
+import { ApolloClient, createNetworkInterface } from 'react-apollo';
 import { getGraphqlEndpoint } from './baseUrls';
 import { getToken } from './src/utils/authorizationToken';
 
 export default () => {
 
-  const cache = new InMemoryCache({
-    addTypename: true,
+  /* Batching can be turned back on to improve performance when it's
+   * available server-side:
+   *
+   * import { createBatchingNetworkInterface } from 'react-apollo';
+   * const networkInterface = createBatchingNetworkInterface({
+   *   batchInterval: 10,
+   *   ... rest as normal
+   * })
+   * */
+  const networkInterface = createNetworkInterface({
+    uri: getGraphqlEndpoint(),
+    // opts: {
+    //   credentials: 'include',
+    //   mode: 'cors'
+    // },
+  });
+
+  networkInterface.use([{
+    applyMiddleware(req, next) {
+      if (!req.options.headers) {
+        req.options.headers = {}; // Create the header object if needed.
+      }
+      // get the authentication token from local storage if it exists
+      const token = getToken();
+      req.options.headers.authorization = token || null;
+      next();
+    }
+  }]);
+
+  const client = new ApolloClient({
+    networkInterface,
     dataIdFromObject: (result) => {
       if (result.id && result.__typename) {
         return `${result.__typename}:${result.id}`;
       }
       return null;
     }
-  });
-
-  const middlewareLink = setContext(() => ({
-    headers: {
-      authorization: getToken() || null
-    }
-  }));
-
-  const httpLink = createHttpLink({ uri: getGraphqlEndpoint() });
-
-  const link = middlewareLink.concat(httpLink);
-
-  const client = new ApolloClient({
-    link,
-    cache
   });
 
   return client;

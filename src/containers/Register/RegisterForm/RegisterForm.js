@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
+import { withApollo, compose } from 'react-apollo';
+import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
-// import debounce from 'lodash.debounce';
-import { Formik, Field } from 'formik';
-import {
-  View
-} from 'react-native';
+import { View } from 'react-native';
 
-import syncValidation from '../../../utils/forms/validation/syncValidation';
-import TextInput from '../../../components/Shared/Form/TextInput';
-import EmailInput from '../../../components/Shared/Form/EmailInput';
-import Button from '../../../components/Shared/Button/Button';
-import { signIn } from '../../../utils/authorizationToken';
-// import isEmailAvailable from '../../../components/Shared/Validators/IsEmailAvailable';
+import TextInput from '~/components/Shared/Form/TextInput';
+import Button from '~/components/Shared/Button/Button';
+import { password, required, maxLength, email } from '~/utils/forms/validation/fieldValidation';
+import { signIn } from '~/utils/authorizationToken';
 import styles from './registerFormStyles';
 
 export class RegisterForm extends Component {
@@ -20,10 +16,10 @@ export class RegisterForm extends Component {
     this.state = {
       isPostingData: false
     };
-    this.handleSubmitForm = this.handleSubmitForm.bind(this);
+    this.submitForm = this.submitForm.bind(this);
   }
 
-  handleSubmitForm(values, resetForm, formValues) {
+  submitForm(values) {
     this.setState({
       isPostingData: true
     });
@@ -33,7 +29,6 @@ export class RegisterForm extends Component {
         this.setState({
           isPostingData: false
         });
-        resetForm(formValues);
         if (result) {
           signIn(result.data.signup.token);
           this.props.navigation.navigate('Dashboard');
@@ -42,73 +37,76 @@ export class RegisterForm extends Component {
   }
 
   render() {
-    const formValues = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: ''
-    };
+
+    const {
+      handleSubmit
+    } = this.props;
 
     return (
-      <Formik
-        initialValues={formValues}
-        validate={values => syncValidation(values)}
-        onSubmit={(values, {
-          resetForm
-        }) => this.handleSubmitForm(values, resetForm, formValues)}
-        render={props => (
-          <View>
-            <Field
-              component={TextInput}
-              name="firstName"
-              label="FIRST NAME"
-              placeholder="Enter your first name"
-              changeText={props.setFieldValue}
-              blurText={props.setFieldTouched}
-            />
-            <Field
-              component={TextInput}
-              name="lastName"
-              label="LAST NAME"
-              placeholder="Enter your last name"
-              changeText={props.setFieldValue}
-              blurText={props.setFieldTouched}
-            />
-            <Field
-              component={EmailInput}
-              name="email"
-              asyncCheck
-              label="EMAIL ADDRESS"
-              placeholder="Enter your email address"
-              changeText={props.setFieldValue}
-              blurText={props.setFieldTouched}
-            />
-            <Field
-              component={TextInput}
-              style={styles.password}
-              name="password"
-              label="PASSWORD"
-              placeholder="Enter your password"
-              changeText={props.setFieldValue}
-              blurText={props.setFieldTouched}
-            />
-            <Button
-              onPress={props.handleSubmit}
-              primary
-              loading={this.state.isPostingData}
-              letterSpacing={2}>
-              REGISTER
-            </Button>
-          </View>
-        )}
-      />
+      <View>
+        <Field
+          component={TextInput}
+          name="firstName"
+          label="FIRST NAME"
+          placeholder="Enter your first name"
+          validate={[
+            required('First name'),
+            maxLength('First name')
+          ]}
+        />
+        <Field
+          component={TextInput}
+          name="lastName"
+          label="LAST NAME"
+          placeholder="Enter your last name"
+          validate={[
+            required('Last name'),
+            maxLength('Last name')
+          ]}
+        />
+        <Field
+          component={TextInput}
+          name="email"
+          label="EMAIL ADDRESS"
+          placeholder="Enter your email address"
+          validate={[
+            required('Email'),
+            maxLength('Email'),
+            email
+          ]}
+        />
+        <Field
+          component={TextInput}
+          style={styles.password}
+          name="password"
+          label="PASSWORD"
+          placeholder="Enter your password"
+          validate={password}
+        />
+        <Button
+          onPress={handleSubmit(this.submitForm)}
+          primary
+          loading={this.state.isPostingData}
+          letterSpacing={2}>
+          REGISTER
+        </Button>
+      </View>
     );
   }
 }
 
 RegisterForm.propTypes = {
   navigation: PropTypes.object,
-  register: PropTypes.func
+  register: PropTypes.func,
+  handleSubmit: PropTypes.func
 };
 
-export default RegisterForm;
+const withReduxForm = reduxForm({
+  form: 'loginForm',
+  enableReinitialize: true
+});
+
+export default compose(
+  withApollo,
+  withReduxForm
+)(RegisterForm);

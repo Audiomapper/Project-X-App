@@ -6,21 +6,16 @@ import {
   Text
 } from 'react-native';
 
-import LetterSpacing from '../../../components/Shared/LetterSpacing/LetterSpacing';
+import LetterSpacing from '~/components/Shared/LetterSpacing/LetterSpacing';
 import styles from './textInputStyles';
 
 const TextInputComponent = ({
-  changeText,
-  blurText,
   placeholder,
   label,
   style,
-  field: {
-    value,
-    name
-  },
-  form: {
-    errors,
+  input,
+  meta: {
+    error,
     touched
   }
 }) => (
@@ -33,29 +28,28 @@ const TextInputComponent = ({
       </LetterSpacing>
     }
     <TextInput
-      onBlur={() => blurText(name)}
+      {...input}
+      onChangeText={input.onChange} // eslint-disable-line
+      onBlur={input.onBlur} // eslint-disable-line
+      value={input.value}
       placeholderTextColor={'#999'}
-      onChangeText={values => changeText(name, values)}
       placeholder={placeholder}
-      value={value}
     />
-    { errors[name] && touched[name] &&
+    { touched && error &&
       <Text
         style={styles.error}>
-        {errors[name]}
+        {error}
       </Text>
     }
   </View>
 );
 
 TextInputComponent.propTypes = {
-  changeText: PropTypes.func,
-  blurText: PropTypes.func,
+  meta: PropTypes.object,
   placeholder: PropTypes.string,
   label: PropTypes.string,
   style: PropTypes.object,
-  field: PropTypes.object,
-  form: PropTypes.object
+  input: PropTypes.object
 };
 
 export default TextInputComponent;

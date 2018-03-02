@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Formik,
-  Field
-} from 'formik';
+import { Field, reduxForm } from 'redux-form';
+import { withApollo, compose } from 'react-apollo';
 import {
   View
 } from 'react-native';
 
-import syncValidation from '../../../utils/forms/validation/syncValidation';
-import TextInput from '../../../components/Shared/Form/TextInput';
-import Button from '../../../components/Shared/Button/Button';
-import { signIn } from '../../../utils/authorizationToken';
+import TextInput from '~/components/Shared/Form/TextInput';
+import Button from '~/components/Shared/Button/Button';
+import asyncEmailValidator from '~/components/Shared/Validators/isEmailAvailableAsyncValidator';
+import { password } from '~/utils/forms/validation/fieldValidation';
+import { signIn } from '~/utils/authorizationToken';
+
 import styles from './loginFormStyles';
 
 export class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPostingData: false,
+      isPostingData: false
     };
-    this.handleSubmitForm = this.handleSubmitForm.bind(this);
+    this.submitForm = this.submitForm.bind(this);
   }
 
-  handleSubmitForm(values, resetForm, formValues) {
+  submitForm(values) {
     this.setState({
       isPostingData: true
     });
@@ -33,7 +33,6 @@ export class LoginForm extends Component {
         this.setState({
           isPostingData: false
         });
-        resetForm(formValues);
         if (result) {
           signIn(result.data.signin.token);
           this.props.navigation.navigate('Dashboard');
@@ -43,54 +42,53 @@ export class LoginForm extends Component {
 
   render() {
 
-    const formValues = {
-      email: '',
-      password: ''
-    };
+    const {
+      handleSubmit
+    } = this.props;
 
     return (
-      <Formik
-        initialValues={formValues}
-        validate={values => syncValidation(values)}
-        onSubmit={(values, {
-          resetForm
-        }) => this.handleSubmitForm(values, resetForm, formValues)}
-        render={props => (
-          <View>
-            <Field
-              component={TextInput}
-              name="email"
-              label="EMAIL ADDRESS"
-              placeholder="Enter your email address"
-              changeText={props.setFieldValue}
-              blurText={props.setFieldTouched}
-            />
-            <Field
-              component={TextInput}
-              style={styles.password}
-              name="password"
-              label="PASSWORD"
-              placeholder="Enter your password"
-              changeText={props.setFieldValue}
-              blurText={props.setFieldTouched}
-            />
-            <Button
-              onPress={props.handleSubmit}
-              primary
-              loading={this.state.isPostingData}
-              letterSpacing={2}>
-              LOG IN
-            </Button>
-          </View>
-        )}
-      />
+      <View>
+        <Field
+          component={TextInput}
+          name="email"
+          label="EMAIL ADDRESS"
+          placeholder="Enter your email address"
+        />
+        <Field
+          component={TextInput}
+          validate={password}
+          autoComplete="off"
+          style={styles.password}
+          name="password"
+          label="PASSWORD"
+          placeholder="Enter your password"
+        />
+        <Button
+          onPress={handleSubmit(this.submitForm)}
+          primary
+          loading={this.state.isPostingData}
+          letterSpacing={2}>
+          LOG IN
+        </Button>
+      </View>
     );
   }
 }
 
 LoginForm.propTypes = {
+  handleSubmit: PropTypes.func,
   navigation: PropTypes.object,
-  login: PropTypes.func
+  login: PropTypes.func,
 };
 
-export default LoginForm;
+const withReduxForm = reduxForm({
+  form: 'loginForm',
+  asyncValidate: asyncEmailValidator,
+  asyncBlurFields: ['email'],
+  enableReinitialize: true
+});
+
+export default compose(
+  withApollo,
+  withReduxForm
+)(LoginForm);

@@ -5,10 +5,10 @@ import {
   View
 } from 'react-native';
 
-import Background from '../../images/bg.jpg';
+import Background from '~/images/bg.jpg';
+import Button from '~/components/Shared/Button/Button';
+import SplitLine from '~/components/Shared/SplitLine/SplitLine';
 import RegisterFormWithData from './RegisterForm/RegisterFormWithData';
-import Button from '../../components/Shared/Button/Button';
-import SplitLine from '../../components/Shared/SplitLine/SplitLine';
 import styles from './registerStyles';
 
 const Register = ({

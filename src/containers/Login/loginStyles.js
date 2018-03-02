@@ -5,7 +5,7 @@ import {
 import {
   sizes,
   fontSizes
-} from '../../styles/variables';
+} from '~/styles/variables';
 
 export default StyleSheet.flatten({
   background: {

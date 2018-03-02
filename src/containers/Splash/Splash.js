@@ -6,10 +6,10 @@ import {
   ImageBackground
 } from 'react-native';
 
-import LetterSpacing from '../../components/Shared/LetterSpacing/LetterSpacing';
-import { isTokenValid } from '../../utils/authorizationToken';
+import LetterSpacing from '~/components/Shared/LetterSpacing/LetterSpacing';
+import { isTokenValid } from '~/utils/authorizationToken';
 import styles from './splashStyles';
-import Logo from '../../images/logo.png';
+import Logo from '~/images/logo.png';
 import Background from './images/bg.jpg';
 
 export class SplashComponent extends Component {

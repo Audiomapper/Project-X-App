@@ -1,5 +1,3 @@
-import { Platform } from 'react-native';
-
 import {
   setCustomTextInput,
   setCustomText,
@@ -19,14 +17,14 @@ const customTextInputProps = {
     borderBottomWidth: 1,
     letterSpacing: 2,
     fontSize: 14,
-    fontFamily: Platform.OS === 'ios' ? 'Roboto-Regular' : 'Roboto-Regular'
+    fontFamily: 'Roboto-Regular'
   }
 };
 
 const customTextProps = {
   style: {
     fontSize: 14,
-    fontFamily: Platform.OS === 'ios' ? 'Roboto-Regular' : 'Roboto-Regular',
+    fontFamily: 'Roboto-Regular',
     color: Styles.colors.white
   }
 };
