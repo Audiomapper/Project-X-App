@@ -8,8 +8,7 @@ import {
 
 import TextInput from '~/components/Shared/Form/TextInput';
 import Button from '~/components/Shared/Button/Button';
-import asyncEmailValidator from '~/components/Shared/Validators/isEmailAvailableAsyncValidator';
-import { password } from '~/utils/forms/validation/fieldValidation';
+import { password, required, maxLength, email } from '~/utils/forms/validation/fieldValidation';
 import { signIn } from '~/utils/authorizationToken';
 import helpers from '~/styles/helpers';
 
@@ -53,6 +52,11 @@ export class LoginForm extends Component {
           name="email"
           label="EMAIL ADDRESS"
           placeholder="Enter your email address"
+          validate={[
+            required('Email'),
+            maxLength('Email'),
+            email
+          ]}
         />
         <Field
           component={TextInput}
@@ -83,8 +87,6 @@ LoginForm.propTypes = {
 
 const withReduxForm = reduxForm({
   form: 'loginForm',
-  asyncValidate: asyncEmailValidator,
-  asyncBlurFields: ['email'],
   enableReinitialize: true
 });
 

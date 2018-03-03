@@ -5,6 +5,7 @@ import {
   View,
   Text
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Background from '~/images/bg.jpg';
 import Button from '~/components/Shared/Button/Button';
@@ -18,12 +19,15 @@ const Register = ({
   <ImageBackground
     source={Background}
     style={styles.background}>
-    <View style={styles.back}>
-      <Text onPress={() => navigation.goBack()}>
-        back
-      </Text>
-    </View>
     <View style={styles.container}>
+      <Text
+        onPress={() => navigation.goBack()}
+        style={styles.back}>
+        <Icon
+          name="ios-arrow-dropleft"
+          color="#ffffff"
+          size={30} />
+      </Text>
       <RegisterFormWithData navigation={navigation} />
       <SplitLine>
         OR

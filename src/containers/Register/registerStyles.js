@@ -29,9 +29,6 @@ export default StyleSheet.flatten({
     backgroundColor: 'rgba(0, 0, 0, 0.2)'
   },
   back: {
-    position: 'absolute',
-    width: '100%',
-    top: 60,
-    left: 0
+    marginBottom: sizes.md
   }
 });
