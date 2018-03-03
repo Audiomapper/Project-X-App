@@ -41,6 +41,8 @@ export const exists = value => (!value ? 'This is required' : undefined);
 
 export const required = field => value => (typeof value !== 'string' || isEmpty(value.trim()) ? `${field} is required` : undefined);
 
+export const required15 = required('Email');
+
 export const email = value => (value && !isEmail(value) ? 'Not a valid email address' : undefined);
 
 export const numbers = value => (value && !isNumeric(value) ? 'Please only use numbers and/or "+"' : undefined);

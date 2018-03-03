@@ -12,6 +12,12 @@ import { password, required, maxLength, email } from '~/utils/forms/validation/f
 import { signIn } from '~/utils/authorizationToken';
 import helpers from '~/styles/helpers';
 
+const emailValidation = [
+  required('Email'),
+  maxLength('Email'),
+  email
+];
+
 export class LoginForm extends Component {
 
   constructor(props) {
@@ -52,11 +58,7 @@ export class LoginForm extends Component {
           name="email"
           label="EMAIL ADDRESS"
           placeholder="Enter your email address"
-          validate={[
-            required('Email'),
-            maxLength('Email'),
-            email
-          ]}
+          validate={emailValidation}
         />
         <Field
           component={TextInput}

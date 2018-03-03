@@ -10,6 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Background from '~/images/bg.jpg';
 import Button from '~/components/Shared/Button/Button';
 import SplitLine from '~/components/Shared/SplitLine/SplitLine';
+import { colors } from '~/styles/variables';
 import RegisterFormWithData from './RegisterForm/RegisterFormWithData';
 import styles from './registerStyles';
 
@@ -35,6 +36,8 @@ const Register = ({
       <Button
         primary
         buttonStyle={styles.facebook}
+        highLightColor={colors.facebook}
+        onPress={() => console.log('sdsd')}
         letterSpacing={2}>
         LOG IN WITH FACEBOOK
       </Button>
@@ -42,6 +45,8 @@ const Register = ({
         primary
         buttonStyle={styles.google}
         noMargin
+        highLightColor={colors.google}
+        onPress={() => console.log('sdsd')}
         letterSpacing={2}>
         LOG IN WITH GOOGLE
       </Button>

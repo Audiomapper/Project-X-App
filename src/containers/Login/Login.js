@@ -11,6 +11,7 @@ import Logo from '~/images/logo.png';
 import Button from '~/components/Shared/Button/Button';
 import SplitLine from '~/components/Shared/SplitLine/SplitLine';
 import LetterSpacing from '~/components/Shared/LetterSpacing/LetterSpacing';
+import { colors } from '~/styles/variables';
 import styles from './loginStyles';
 import LoginFormWithData from './LoginForm/LoginFormWithData';
 
@@ -31,6 +32,8 @@ const Login = ({
       <Button
         primary
         buttonStyle={styles.facebook}
+        highLightColor={colors.facebook}
+        onPress={() => console.log('sdsd')}
         letterSpacing={2}>
         LOG IN WITH FACEBOOK
       </Button>
@@ -38,6 +41,8 @@ const Login = ({
         primary
         buttonStyle={styles.google}
         noMargin
+        highLightColor={colors.google}
+        onPress={() => console.log('sdsd')}
         letterSpacing={2}>
         LOG IN WITH GOOGLE
       </Button>

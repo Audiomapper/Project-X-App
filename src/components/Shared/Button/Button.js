@@ -7,8 +7,8 @@ import {
 } from 'react-native';
 
 import LetterSpacing from '~/components/Shared/LetterSpacing/LetterSpacing';
-import styles from './buttonStyles';
 import { colors } from '~/styles/variables';
+import styles from './buttonStyles';
 
 const ButtonComponent = ({
   buttonStyle,
@@ -18,9 +18,11 @@ const ButtonComponent = ({
   children,
   loading,
   primary,
-  noMargin
+  noMargin,
+  highLightColor
 }) => (
   <TouchableHighlight
+    underlayColor={highLightColor}
     style={[styles.container, noMargin && styles.noMargin]}
     onPress={onPress}>
     <View
@@ -49,6 +51,7 @@ const ButtonComponent = ({
 );
 
 ButtonComponent.propTypes = {
+  highLightColor: PropTypes.string,
   buttonStyle: PropTypes.object,
   textStyle: PropTypes.object,
   letterSpacing: PropTypes.number,

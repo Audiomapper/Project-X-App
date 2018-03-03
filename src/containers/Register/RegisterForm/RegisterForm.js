@@ -7,9 +7,25 @@ import { View } from 'react-native';
 import TextInput from '~/components/Shared/Form/TextInput';
 import Button from '~/components/Shared/Button/Button';
 import asyncEmailValidator from '~/components/Shared/Validators/isEmailAvailableAsyncValidator';
-import { password, required, maxLength } from '~/utils/forms/validation/fieldValidation';
+import { password, required, maxLength, email } from '~/utils/forms/validation/fieldValidation';
 import { signIn } from '~/utils/authorizationToken';
 import helpers from '~/styles/helpers';
+
+const emailValidation = [
+  required('Email'),
+  maxLength('Email'),
+  email
+];
+
+const firstNameValidation = [
+  required('First name'),
+  maxLength('First name')
+];
+
+const lastNameValidation = [
+  required('Last name'),
+  maxLength('Last name')
+];
 
 export class RegisterForm extends Component {
   constructor(props) {
@@ -50,24 +66,19 @@ export class RegisterForm extends Component {
           name="firstName"
           label="FIRST NAME"
           placeholder="Enter your first name"
-          validate={[
-            required('First name'),
-            maxLength('First name')
-          ]}
+          validate={firstNameValidation}
         />
         <Field
           component={TextInput}
           name="lastName"
           label="LAST NAME"
           placeholder="Enter your last name"
-          validate={[
-            required('Last name'),
-            maxLength('Last name')
-          ]}
+          validate={lastNameValidation}
         />
         <Field
           component={TextInput}
           name="email"
+          validate={emailValidation}
           label="EMAIL ADDRESS"
           placeholder="Enter your email address"
         />
@@ -98,7 +109,7 @@ RegisterForm.propTypes = {
 };
 
 const withReduxForm = reduxForm({
-  form: 'loginForm',
+  form: 'registerForm',
   asyncValidate: asyncEmailValidator,
   asyncBlurFields: ['email'],
   enableReinitialize: true
