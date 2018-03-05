@@ -25,7 +25,7 @@
 /* eslint-disable no-underscore-dangle */
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
 import { getGraphqlEndpoint } from './baseUrls';
-import { getToken } from './src/utils/authorizationToken';
+import { getUserToken } from './src/utils/authorizationToken';
 
 export default () => {
 
@@ -52,7 +52,7 @@ export default () => {
         req.options.headers = {}; // Create the header object if needed.
       }
       // get the authentication token from local storage if it exists
-      const token = getToken();
+      const token = getUserToken();
       req.options.headers.authorization = token || null;
       next();
     }

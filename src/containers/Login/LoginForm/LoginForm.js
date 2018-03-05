@@ -9,7 +9,7 @@ import {
 import TextInput from '~/components/Shared/Form/TextInput';
 import Button from '~/components/Shared/Button/Button';
 import { password, required, maxLength, email } from '~/utils/forms/validation/fieldValidation';
-import { signIn } from '~/utils/authorizationToken';
+import { logInUser } from '~/utils/authorizationToken';
 import helpers from '~/styles/helpers';
 
 const emailValidation = [
@@ -39,7 +39,7 @@ export class LoginForm extends Component {
           isPostingData: false
         });
         if (result) {
-          signIn(result.data.signin.token);
+          logInUser(result.data.signin.token);
           this.props.navigation.navigate('Dashboard');
         }
       });

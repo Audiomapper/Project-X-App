@@ -7,17 +7,18 @@ import {
 } from 'react-native';
 
 import LetterSpacing from '~/components/Shared/LetterSpacing/LetterSpacing';
-import { isTokenValid } from '~/utils/authorizationToken';
-import styles from './splashStyles';
+import { isLoggedIn } from '~/utils/authorizationToken';
 import Logo from '~/images/logo.png';
+import styles from './splashStyles';
 import Background from './images/bg.jpg';
 
 export class SplashComponent extends Component {
   componentWillMount() {
-    isTokenValid()
-      .then((result) => {
+    isLoggedIn
+      .then((results) => {
+        console.log(results);
         setTimeout(() => {
-          if (result) {
+          if (results.includes(true)) {
             return this.props.navigation.navigate('Dashboard');
           }
           return this.props.navigation.navigate('Login');
