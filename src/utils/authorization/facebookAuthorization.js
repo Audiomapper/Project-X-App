@@ -3,19 +3,11 @@ import {
   AccessToken
 } from 'react-native-fbsdk';
 
-let facebookToken;
-
-export const logOutFacebook = () => {
-  facebookToken = undefined;
-  return LoginManager.logOut();
-};
+export const logOutFacebook = () => LoginManager.logOut();
 
 export const getFacebookToken = async () => {
-  if (facebookToken) {
-    return Promise.resolve(facebookToken);
-  }
-  facebookToken = await AccessToken.getCurrentAccessToken();
-  return facebookToken;
+  const accessToken = await AccessToken.getCurrentAccessToken();
+  return accessToken;
 };
 
 export const isFacebookTokenValid = async () => {

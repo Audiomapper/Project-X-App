@@ -37,12 +37,9 @@ export class Login extends Component {
     LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_friends'])
       .then((result) => {
         this.setState({
-          facebookLogin: true
+          facebookLogin: false
         });
         if (result.isCancelled) {
-          this.setState({
-            facebookLogin: false
-          });
           return console.log('Login cancelled');
         }
         return this.props.navigation.navigate('Dashboard');
@@ -54,13 +51,22 @@ export class Login extends Component {
 
   // eslint-disable-next-line
   async handleGoogleLogin() {
+    this.setState({
+      googleLogin: true
+    });
+
     await GoogleSignIn.configure({
       clientID: '513738044753-3dc308aq9qkippgvv265vqq95hq16ouc.apps.googleusercontent.com',
     });
 
-    const user = await GoogleSignIn.signInPromise();
-
-    console.log(user);
+    await GoogleSignIn.signInPromise()
+      .then((result) => {
+        console.log(result);
+        this.setState({
+          googleLogin: false
+        });
+        return this.props.navigation.navigate('Dashboard');
+      });
   }
 
   render() {
