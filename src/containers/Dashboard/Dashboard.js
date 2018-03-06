@@ -3,7 +3,7 @@ import {
   Text,
   View
 } from 'react-native';
-import { logOut } from '~/utils/authorizationToken';
+import { logOut } from '~/utils/authorization/authorization';
 // import { signOut } from '~/utils/authorizationToken';
 
 const Dashboard = () => (

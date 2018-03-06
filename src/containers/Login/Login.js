@@ -20,20 +20,27 @@ export class Login extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      facebookLogin: false
+    };
     this.handleFacebookLogin = this.handleFacebookLogin.bind(this);
   }
 
   // eslint-disable-next-line
   handleFacebookLogin() {
+    this.setState({
+      facebookLogin: true
+    });
+
     LoginManager.logInWithReadPermissions(['public_profile', 'email', 'user_friends'])
       .then((result) => {
+        this.setState({
+          facebookLogin: true
+        });
         if (result.isCancelled) {
-          console.log('Login cancelled');
+          return console.log('Login cancelled');
         }
-        else {
-          console.log(result);
-          console.log(result.grantedPermissions.toString());
-        }
+        return this.props.navigation.navigate('Dashboard');
       })
       .catch((error) => {
         console.log(error);
@@ -45,8 +52,6 @@ export class Login extends Component {
     const {
       navigation
     } = this.props;
-
-    console.log('sdsd');
 
     return (
       <ImageBackground
@@ -62,6 +67,7 @@ export class Login extends Component {
           </SplitLine>
           <Button
             primary
+            loading={this.state.facebookLogin}
             buttonStyle={styles.facebook}
             highLightColor={colors.facebook}
             onPress={this.handleFacebookLogin}

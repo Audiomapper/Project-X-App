@@ -8,7 +8,7 @@ import TextInput from '~/components/Shared/Form/TextInput';
 import Button from '~/components/Shared/Button/Button';
 import asyncEmailValidator from '~/components/Shared/Validators/isEmailAvailableAsyncValidator';
 import { password, required, maxLength, email } from '~/utils/forms/validation/fieldValidation';
-import { signIn } from '~/utils/authorizationToken';
+import { logInUser } from '~/utils/authorization/userAuthorization';
 import helpers from '~/styles/helpers';
 
 const emailValidation = [
@@ -47,7 +47,7 @@ export class RegisterForm extends Component {
           isPostingData: false
         });
         if (result) {
-          signIn(result.data.signup.token);
+          logInUser(result.data.signup.token);
           this.props.navigation.navigate('Dashboard');
         }
       });

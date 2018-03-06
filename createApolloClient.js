@@ -24,8 +24,9 @@
 
 /* eslint-disable no-underscore-dangle */
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
+
+import { getUserToken } from './src/utils/authorization/userAuthorization';
 import { getGraphqlEndpoint } from './baseUrls';
-import { getUserToken } from './src/utils/authorizationToken';
 
 export default () => {
 

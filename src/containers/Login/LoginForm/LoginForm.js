@@ -9,7 +9,7 @@ import {
 import TextInput from '~/components/Shared/Form/TextInput';
 import Button from '~/components/Shared/Button/Button';
 import { password, required, maxLength, email } from '~/utils/forms/validation/fieldValidation';
-import { logInUser } from '~/utils/authorizationToken';
+import { logInUser } from '~/utils/authorization/userAuthorization';
 import helpers from '~/styles/helpers';
 
 const emailValidation = [
