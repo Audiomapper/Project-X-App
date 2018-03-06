@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -68,6 +67,16 @@
 		B208CD23204BDC9200C290FE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B208CD15204BDC9100C290FE /* Bolts.framework */; };
 		B208CD24204BDC9200C290FE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B208CD15204BDC9100C290FE /* Bolts.framework */; };
 		B208CD25204BDC9200C290FE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B208CD15204BDC9100C290FE /* Bolts.framework */; };
+		B25F6CCC204EBFDE001D8CF2 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B25F6CC9204EBFDD001D8CF2 /* GoogleSignIn.bundle */; };
+		B25F6CCF204EC065001D8CF2 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F6CCE204EC064001D8CF2 /* SafariServices.framework */; };
+		B25F6CD1204EC076001D8CF2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F6CD0204EC076001D8CF2 /* SystemConfiguration.framework */; };
+		B25F6CD2204EC130001D8CF2 /* GoogleSignIn.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = B25F6CC9204EBFDD001D8CF2 /* GoogleSignIn.bundle */; };
+		B261B0AB204EC2820029DFA4 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B261B0A9204EC2820029DFA4 /* GoogleSignInDependencies.framework */; };
+		B261B0AC204EC2820029DFA4 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B261B0AA204EC2820029DFA4 /* GoogleSignIn.framework */; };
+		B261B149204ED0D60029DFA4 /* RNGoogleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261B144204ED0D50029DFA4 /* RNGoogleSignIn.swift */; };
+		B261B14A204ED0D60029DFA4 /* RNGoogleSignInBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B261B145204ED0D50029DFA4 /* RNGoogleSignInBridge.m */; };
+		B261B14B204ED0D60029DFA4 /* RNGoogleSignInEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B261B146204ED0D60029DFA4 /* RNGoogleSignInEvents.swift */; };
+		B261B14C204ED0D60029DFA4 /* RNGoogleSignInEventsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B261B148204ED0D60029DFA4 /* RNGoogleSignInEventsBridge.m */; };
 		B3D255B460BE46EA85CFE286 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 751D77C52445441DBED8DDA1 /* libRCTFBSDK.a */; };
 		BBC4D789CC4348C7981862D6 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAB22FFBE0444864A378D5F5 /* Feather.ttf */; };
 		BCE4B6673F1D4516B01B2B6D /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C3CE87024F142008E27756B /* Ionicons.ttf */; };
@@ -440,6 +449,17 @@
 		B208CD13204BDC9100C290FE /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		B208CD14204BDC9100C290FE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		B208CD15204BDC9100C290FE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../../Documents/FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		B25F6C9D204EBE19001D8CF2 /* app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "app-Bridging-Header.h"; path = "app/app-Bridging-Header.h"; sourceTree = "<group>"; };
+		B25F6CC9204EBFDD001D8CF2 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = app/google_signin_sdk_4_1_0/GoogleSignIn.bundle; sourceTree = "<group>"; };
+		B25F6CCE204EC064001D8CF2 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		B25F6CD0204EC076001D8CF2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B261B0A9204EC2820029DFA4 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignInDependencies.framework; path = app/google_signin_sdk_4_1_0/GoogleSignInDependencies.framework; sourceTree = "<group>"; };
+		B261B0AA204EC2820029DFA4 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSignIn.framework; path = app/google_signin_sdk_4_1_0/GoogleSignIn.framework; sourceTree = "<group>"; };
+		B261B144204ED0D50029DFA4 /* RNGoogleSignIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNGoogleSignIn.swift; path = "../../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignIn.swift"; sourceTree = "<group>"; };
+		B261B145204ED0D50029DFA4 /* RNGoogleSignInBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNGoogleSignInBridge.m; path = "../../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInBridge.m"; sourceTree = "<group>"; };
+		B261B146204ED0D60029DFA4 /* RNGoogleSignInEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RNGoogleSignInEvents.swift; path = "../../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInEvents.swift"; sourceTree = "<group>"; };
+		B261B147204ED0D60029DFA4 /* RNGoogleSignIn-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RNGoogleSignIn-Bridging-Header.h"; path = "../../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignIn-Bridging-Header.h"; sourceTree = "<group>"; };
+		B261B148204ED0D60029DFA4 /* RNGoogleSignInEventsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNGoogleSignInEventsBridge.m; path = "../../node_modules/react-native-google-sign-in/ios/RNGoogleSignIn/RNGoogleSignInEventsBridge.m"; sourceTree = "<group>"; };
 		C9B8BD7F8F7A45709A2C976C /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../src/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		E212BFB283E74050B56C3ECB /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../src/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		E36F9BBC1D4E49D09C124B58 /* libRCTActionSheet.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTActionSheet.a; sourceTree = "<group>"; };
@@ -466,6 +486,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B261B0AB204EC2820029DFA4 /* GoogleSignInDependencies.framework in Frameworks */,
+				B25F6CD2204EC130001D8CF2 /* GoogleSignIn.bundle in Frameworks */,
+				B261B0AC204EC2820029DFA4 /* GoogleSignIn.framework in Frameworks */,
+				B25F6CD1204EC076001D8CF2 /* SystemConfiguration.framework in Frameworks */,
+				B25F6CCF204EC065001D8CF2 /* SafariServices.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				B208CC66204A97D000C290FE /* libRCTAnimation.a in Frameworks */,
 				B208CD1E204BDC9200C290FE /* FBSDKCoreKit.framework in Frameworks */,
@@ -610,6 +635,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				B25F6C9D204EBE19001D8CF2 /* app-Bridging-Header.h */,
 			);
 			name = app;
 			sourceTree = "<group>";
@@ -640,6 +666,11 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B25F6CC9204EBFDD001D8CF2 /* GoogleSignIn.bundle */,
+				B261B0AA204EC2820029DFA4 /* GoogleSignIn.framework */,
+				B261B0A9204EC2820029DFA4 /* GoogleSignInDependencies.framework */,
+				B25F6CD0204EC076001D8CF2 /* SystemConfiguration.framework */,
+				B25F6CCE204EC064001D8CF2 /* SafariServices.framework */,
 				B208CD15204BDC9100C290FE /* Bolts.framework */,
 				B208CD14204BDC9100C290FE /* FBSDKCoreKit.framework */,
 				B208CD12204BDC9100C290FE /* FBSDKLoginKit.framework */,
@@ -701,6 +732,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B261B143204ED0A90029DFA4 /* RNGoogleSignIn */,
 				13B07FAE1A68108700A75B9A /* app */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* appTests */,
@@ -800,6 +832,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B261B143204ED0A90029DFA4 /* RNGoogleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				B261B147204ED0D60029DFA4 /* RNGoogleSignIn-Bridging-Header.h */,
+				B261B144204ED0D50029DFA4 /* RNGoogleSignIn.swift */,
+				B261B145204ED0D50029DFA4 /* RNGoogleSignInBridge.m */,
+				B261B146204ED0D60029DFA4 /* RNGoogleSignInEvents.swift */,
+				B261B148204ED0D60029DFA4 /* RNGoogleSignInEventsBridge.m */,
+			);
+			path = RNGoogleSignIn;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -886,14 +930,20 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 920;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 920;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 920;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
@@ -1284,6 +1334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25F6CCC204EBFDE001D8CF2 /* GoogleSignIn.bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				EDF6F2375C9D4C7EB3C44C39 /* FjallaOne-Regular.ttf in Resources */,
@@ -1374,8 +1425,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B261B149204ED0D60029DFA4 /* RNGoogleSignIn.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				B261B14C204ED0D60029DFA4 /* RNGoogleSignInEventsBridge.m in Sources */,
+				B261B14B204ED0D60029DFA4 /* RNGoogleSignInEvents.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				B261B14A204ED0D60029DFA4 /* RNGoogleSignInBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1427,7 +1482,9 @@
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1454,6 +1511,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
+				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/app.app/app";
 			};
@@ -1462,7 +1524,9 @@
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				HEADER_SEARCH_PATHS = (
@@ -1486,6 +1550,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
+				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/app.app/app";
 			};
@@ -1495,11 +1563,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/app/google_signin_sdk_4_1_0",
+					/Users/chrisbrooks/Documents/FacebookSDK,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/app/google_signin_sdk_4_1_0/GoogleSignIn.framework",
 					"$(SRCROOT)/../node_modules/react-native-global-props/ios/ReactNativeGlobalProps/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
@@ -1513,6 +1586,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = app;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/app-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1522,10 +1598,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/app/google_signin_sdk_4_1_0",
+					/Users/chrisbrooks/Documents/FacebookSDK,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/app/google_signin_sdk_4_1_0/GoogleSignIn.framework",
 					"$(SRCROOT)/../node_modules/react-native-global-props/ios/ReactNativeGlobalProps/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
@@ -1539,6 +1620,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = app;
+				SWIFT_OBJC_BRIDGING_HEADER = "app/app-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1550,6 +1633,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1578,6 +1662,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.app-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNGoogleSignIn/app-tvOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1590,6 +1677,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1618,6 +1706,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.app-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNGoogleSignIn/app-tvOS-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -1629,6 +1719,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1647,6 +1738,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.app-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNGoogleSignIn/app-tvOSTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/app-tvOS.app/app-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
@@ -1658,6 +1752,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1676,6 +1771,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.app-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNGoogleSignIn/app-tvOSTests-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = /Users/chrisbrooks/Documents/FacebookSDK;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/app-tvOS.app/app-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
@@ -1726,6 +1823,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1770,6 +1868,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

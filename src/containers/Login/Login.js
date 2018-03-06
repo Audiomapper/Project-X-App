@@ -6,6 +6,7 @@ import {
   View
 } from 'react-native';
 import { LoginManager } from 'react-native-fbsdk';
+import GoogleSignIn from 'react-native-google-sign-in';
 
 import Background from '~/images/bg.jpg';
 import Logo from '~/images/logo.png';
@@ -24,6 +25,7 @@ export class Login extends Component {
       facebookLogin: false
     };
     this.handleFacebookLogin = this.handleFacebookLogin.bind(this);
+    this.handleGoogleLogin = this.handleGoogleLogin.bind(this);
   }
 
   // eslint-disable-next-line
@@ -38,6 +40,9 @@ export class Login extends Component {
           facebookLogin: true
         });
         if (result.isCancelled) {
+          this.setState({
+            facebookLogin: false
+          });
           return console.log('Login cancelled');
         }
         return this.props.navigation.navigate('Dashboard');
@@ -45,6 +50,17 @@ export class Login extends Component {
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  // eslint-disable-next-line
+  async handleGoogleLogin() {
+    await GoogleSignIn.configure({
+      clientID: '513738044753-3dc308aq9qkippgvv265vqq95hq16ouc.apps.googleusercontent.com',
+    });
+
+    const user = await GoogleSignIn.signInPromise();
+
+    console.log(user);
   }
 
   render() {
@@ -79,7 +95,7 @@ export class Login extends Component {
             buttonStyle={styles.google}
             noMargin
             highLightColor={colors.google}
-            onPress={() => console.log('sdsd')}
+            onPress={this.handleGoogleLogin}
             letterSpacing={2}>
             LOG IN WITH GOOGLE
           </Button>
