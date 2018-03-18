@@ -47,7 +47,7 @@ export class RegisterForm extends Component {
           isPostingData: false
         });
         if (result) {
-          logInUser(result.data.signup.token);
+          logInUser(result.data.signup);
           this.props.navigation.navigate('Dashboard');
         }
       });

@@ -23,14 +23,8 @@ export default StyleSheet.flatten({
     alignSelf: 'center',
     width: 110,
     height: 125,
-    marginTop: -40,
+    marginTop: -20,
     marginBottom: (sizes.md + sizes.sm)
-  },
-  facebook: {
-    backgroundColor: 'rgba(0, 0, 0, 0.2)'
-  },
-  google: {
-    backgroundColor: 'rgba(0, 0, 0, 0.2)'
   },
   footer: {
     height: 40,

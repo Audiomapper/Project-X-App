@@ -1,15 +1,15 @@
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import LoginFormComponent from './LoginForm';
+import GoogleLoginComponent from './GoogleLogin';
 
-const LOGIN_MUTATION = gql`mutation SignIn($user: SignInInput!) {
-  signin(user: $user)
+const GOOGLE_LOGIN_MUTATION = gql`mutation GoogleLogIn($user: GoogleSignInInput!) {
+  googleLogIn(user: $user)
 }`;
 
-const withCreateMutation = graphql(LOGIN_MUTATION, {
+const withGoogleLogInMutation = graphql(GOOGLE_LOGIN_MUTATION, {
   props: ({ mutate }) => ({
-    login: user => (
+    loginWithGoogle: user => (
       mutate({
         variables: {
           user
@@ -24,5 +24,5 @@ const withCreateMutation = graphql(LOGIN_MUTATION, {
 });
 
 export default compose(
-  withCreateMutation
-)(LoginFormComponent);
+  withGoogleLogInMutation
+)(GoogleLoginComponent);

@@ -13,19 +13,14 @@ import styles from './splashStyles';
 import Background from './images/bg.jpg';
 
 export class SplashComponent extends Component {
-  componentWillMount() {
-    isLoggedIn
-      .then((results) => {
-        setTimeout(() => {
-          if (results.includes(true)) {
-            return this.props.navigation.navigate('Dashboard');
-          }
-          return this.props.navigation.navigate('Login');
-        }, 1000);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  async componentWillMount() {
+    const loggedIn = await isLoggedIn();
+    setTimeout(() => {
+      if (loggedIn) {
+        return this.props.navigation.navigate('Dashboard');
+      }
+      return this.props.navigation.navigate('Login');
+    }, 1000);
   }
 
   render() {

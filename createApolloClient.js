@@ -26,6 +26,7 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
 import { getUserToken } from './src/utils/authorization/userAuthorization';
+import { getFacebookUserToken } from './src/utils/authorization/facebookAuthorization';
 import { getGraphqlEndpoint } from './baseUrls';
 
 export default () => {
@@ -48,13 +49,16 @@ export default () => {
   });
 
   networkInterface.use([{
-    applyMiddleware(req, next) {
+    async applyMiddleware(req, next) {
       if (!req.options.headers) {
         req.options.headers = {}; // Create the header object if needed.
       }
       // get the authentication token from local storage if it exists
-      const token = getUserToken();
-      req.options.headers.authorization = token || null;
+      const userToken = await getUserToken();
+      const facebookUserToken = await getFacebookUserToken();
+
+      req.options.headers.authorization = facebookUserToken || userToken || null;
+
       next();
     }
   }]);

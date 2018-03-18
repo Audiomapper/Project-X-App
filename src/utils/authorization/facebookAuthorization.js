@@ -2,18 +2,37 @@ import {
   LoginManager,
   AccessToken
 } from 'react-native-fbsdk';
+import { AsyncStorage } from 'react-native';
 
-export const logOutFacebook = () => LoginManager.logOut();
+let facebookUserToken;
 
-export const getFacebookToken = async () => {
-  const accessToken = await AccessToken.getCurrentAccessToken();
-  return accessToken;
+export const logOutFacebookUser = () => {
+  facebookUserToken = undefined;
+  AsyncStorage.removeItem('FACEBOOK_AUTH_TOKEN');
+  return LoginManager.logOut();
 };
 
-export const isFacebookTokenValid = async () => {
-  const response = await getFacebookToken();
-  if (response !== null) {
+export const logInFacebookUser = (newToken) => {
+  facebookUserToken = newToken;
+  return AsyncStorage.setItem('FACEBOOK_AUTH_TOKEN', newToken);
+};
+
+export const getFacebookUserToken = async () => {
+  if (facebookUserToken) {
+    return Promise.resolve(facebookUserToken);
+  }
+  facebookUserToken = await AsyncStorage.getItem('FACEBOOK_AUTH_TOKEN');
+  return facebookUserToken;
+};
+
+export const isFacebookUserLoggedIn = async () => {
+  const userToken = await getFacebookUserToken();
+  const accessToken = await AccessToken.getCurrentAccessToken();
+
+  if (userToken && accessToken) {
     return true;
   }
+
+  logOutFacebookUser();
   return false;
 };

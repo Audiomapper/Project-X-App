@@ -1,30 +1,41 @@
 import {
-  isFacebookTokenValid,
-  logOutFacebook
+  getFacebookUserToken,
+  logOutFacebookUser,
+  isFacebookUserLoggedIn
 } from './facebookAuthorization';
 
 import {
-  logOutGoogle,
-  isGoogleUserValid
+  logOutGoogleUser,
+  getGoogleUserToken,
+  isGoogleUserLoggedIn
 } from './googleAuthorization';
 
 import {
-  isUserTokenValid,
+  getUserToken,
   logOutUser
 } from './userAuthorization';
 
-export const isLoggedIn = Promise.all([isFacebookTokenValid(), isUserTokenValid(), isGoogleUserValid()]);
-
 export const logOut = async () => {
-  const loggedInWithFacebook = await isFacebookTokenValid();
-  const loggedInWithGoogle = await isGoogleUserValid();
+  const loggedInWithFacebook = await getFacebookUserToken();
+  const loggedInWithGoogle = await getGoogleUserToken();
 
   if (loggedInWithFacebook) {
-    return logOutFacebook();
+    return logOutFacebookUser();
   }
   else if (loggedInWithGoogle) {
-    console.log(logOutGoogle());
-    return logOutGoogle();
+    return logOutGoogleUser();
   }
+
   return logOutUser();
+};
+
+export const isLoggedIn = async () => {
+  const userLogin = await getUserToken();
+  const facebookLogin = await isFacebookUserLoggedIn();
+  const googleLogin = await isGoogleUserLoggedIn();
+
+  if (userLogin || facebookLogin || googleLogin) {
+    return true;
+  }
+  return false;
 };

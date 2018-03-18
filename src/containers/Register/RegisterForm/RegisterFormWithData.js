@@ -4,13 +4,7 @@ import gql from 'graphql-tag';
 import RegisterFormComponent from './RegisterForm';
 
 const REGISTER_MUTATION = gql`mutation SignUp($user: SignUpInput!) {
-  signup(user: $user) {
-    id
-    firstName
-    lastName
-    email
-    token
-  }
+  signup(user: $user)
 }`;
 
 const withRegisterMutation = graphql(REGISTER_MUTATION, {

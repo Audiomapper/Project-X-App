@@ -39,7 +39,7 @@ export class LoginForm extends Component {
           isPostingData: false
         });
         if (result) {
-          logInUser(result.data.signin.token);
+          logInUser(result.data.signin);
           this.props.navigation.navigate('Dashboard');
         }
       });

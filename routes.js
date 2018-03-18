@@ -1,7 +1,7 @@
 import { StackNavigator } from 'react-navigation';
 
 import Login from '~/containers/Login/Login';
-import Dashboard from '~/containers/Dashboard/Dashboard';
+import DashboardWithData from '~/containers/Dashboard/DashboardWithData';
 import Splash from '~/containers/Splash/Splash';
 import Register from '~/containers/Register/Register';
 
@@ -25,7 +25,7 @@ const Routes = () => (
       screen: Splash
     },
     Dashboard: {
-      screen: Dashboard
+      screen: DashboardWithData
     },
     Login: {
       screen: Login
