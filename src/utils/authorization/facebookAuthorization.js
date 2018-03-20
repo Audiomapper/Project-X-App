@@ -3,6 +3,7 @@ import {
   AccessToken
 } from 'react-native-fbsdk';
 import { AsyncStorage } from 'react-native';
+import axios from 'axios';
 
 let facebookUserToken;
 
